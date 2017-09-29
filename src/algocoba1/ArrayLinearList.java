@@ -7,7 +7,6 @@ public class ArrayLinearList implements LinearList {
 
     //edit constructor untuk no 4 hal 172
     public ArrayLinearList (int initialCapacity){
-        //System.out.println("asu");
         if(initialCapacity < 1){
             System.out.println("false");
             throw new IllegalArgumentException("panjang array harus lebih dari 1");

@@ -5,10 +5,19 @@ public class ArrayLinearList implements LinearList {
     protected Object [] element, element2;
     protected int size;
 
+    //edit constructor untuk no 4 hal 172
     public ArrayLinearList (int initialCapacity){
-        if(initialCapacity < 1)
+        //System.out.println("asu");
+        if(initialCapacity < 1){
+            System.out.println("false");
             throw new IllegalArgumentException("panjang array harus lebih dari 1");
+        }
+        
         element = new Object[initialCapacity];
+        
+        if(initialCapacity == element.length){
+        element = ChangeArrayLength.changeLength1D(element, 2*initialCapacity);
+        }
     }
 
     public ArrayLinearList(){
@@ -64,16 +73,17 @@ public class ArrayLinearList implements LinearList {
         }
 
         if (size == element.length){
-            element = ChangeArrayLength.changeLength1D(element, 2*size);
+            ArrayLinearList ar =  new ArrayLinearList(size);
         }
 
+        if(element.length > size){
         for (int i = size - 1; i>= index; i--){
             element[i+1]= element[i];
         }
         
         element[index] = theElement;
         
-        size++;
+        size++;}
     }
     
     @Override

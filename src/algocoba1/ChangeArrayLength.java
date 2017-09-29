@@ -6,7 +6,7 @@ public class ChangeArrayLength {
     public static Object [] changeLength1D(Object [] a, int n, int newLength){
         
         if (n> newLength){
-            throw new IllegalArgumentException("new length is too small");
+            throw new IllegalArgumentException("ukuran array terlalu kecil");
         }
 
         Object [] newArray = (Object []) Array.newInstance(a.getClass().getComponentType(), newLength);

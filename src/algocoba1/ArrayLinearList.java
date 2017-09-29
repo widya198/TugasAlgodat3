@@ -38,38 +38,38 @@ public class ArrayLinearList implements LinearList {
 
     @Override
     public int indexOf(Object theElement) {
-        // mencari element[] untuk theElement
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < size; i++){
             if(element[i].equals(theElement))
                 return i;
-        //jika theElement tidak ada
+        }
         return -1;
     }
 
     @Override
     public Object remove(int index) {
         checkIndex(index);
-        // index yang valid, geser element dengan index yg lebih tinggi
         Object removedElement = element[index];
-        for(int i = index + 1; i < size; i++)
+        for(int i = index + 1; i < size; i++){
             element[i-1] = element[i];
-        
-        element[--size] = null;     //enable garbage collection
+        }
+        element[--size] = null;  
         return removedElement;
 
     }
     
     @Override
     public void add(int index, Object theElement) {
-        //index yg tidak valid
-        if (index < 0 || index > size)
+        if (index < 0 || index > size){
             throw new IndexOutOfBoundsException("index = " + index + "size = " + size);
-        // index yg valid, pastikan kita punya ruang yg cukup
-        if (size == element.length)
+        }
+
+        if (size == element.length){
             element = ChangeArrayLength.changeLength1D(element, 2*size);
-        //geser element ke kanan satu posisi
-        for (int i = size - 1; i>= index; i--)
+        }
+
+        for (int i = size - 1; i>= index; i--){
             element[i+1]= element[i];
+        }
         
         element[index] = theElement;
         
@@ -81,20 +81,23 @@ public class ArrayLinearList implements LinearList {
         
         StringBuffer s = new StringBuffer("[");
         
-        // taruh element ke buffer
-        for (int i = 0; i < size; i++)
+
+        for (int i = 0; i < size; i++){
             if (element[i] == null)
                 s.append("null, ");
             else 
                 s.append(element[i].toString() + ", ");
-        if (size > 0)
+        }
+        if (size > 0){
             s.delete(s.length() - 2, s.length());
+        }
         s.append("]");
 
         return new String(s);
                     
     }
     
+    // coding soal no 5
     @Override
     public void trimToSize(){
         element2 = new Object[size];
@@ -105,6 +108,8 @@ public class ArrayLinearList implements LinearList {
         }
        
     }
+    
+    //coding soal no 6
     @Override
     public Object setSize(int no){
         if(size>no){
@@ -128,6 +133,7 @@ public class ArrayLinearList implements LinearList {
         return size;
     }
     
+    //coding soal no 8
     @Override
     public Object clear(){
         for(int i = 0; i<size; i++){

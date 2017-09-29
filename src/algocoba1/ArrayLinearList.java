@@ -7,7 +7,7 @@ public class ArrayLinearList implements LinearList {
 
     public ArrayLinearList (int initialCapacity){
         if(initialCapacity < 1)
-            throw new IllegalArgumentException("initialCapacity must be >= 1");
+            throw new IllegalArgumentException("panjang array harus lebih dari 1");
         element = new Object[initialCapacity];
     }
 

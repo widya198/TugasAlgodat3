@@ -4,6 +4,8 @@ public class AlgoCoba1 {
     public static void main(String[] args) {
         
         ArrayLinearList x = new ArrayLinearList(8);
+        //ArrayLinearList d = new ArrayLinearList(8);
+        Object[] f = new Object[20];
         //pengecekan panjang array
         System.out.println("ukuran awal x\t\t\t"+x.element.length);
         //pengecekan apakah array kosong
@@ -36,8 +38,13 @@ public class AlgoCoba1 {
         x.add(8, 6);
         x.add(9, 8);
         x.add(10, 7);
+        //clone array tapi masih belum sesuai harapan
+        System.out.println("Setelah di clone ke Object F\t"+x.clone(f));
         System.out.println(x.size);
         System.out.println("isi stlh d tambah 3 array baru\t"+x.toString());
+        //remove range array
+        x.removeRange(0, 2);
+        System.out.println("isi stlh d remove range\t\t"+x.toString());
         System.out.println("jumlah array sebelum di potong\t"+x.element.length);
         //memotong panjang array sesuai dengan array yang terisi
         x.trimToSize();

@@ -1,6 +1,6 @@
 package algocoba1;
 
-public class ArrayLinearList implements LinearList {
+public class ArrayLinearList implements LinearList, Cloneable {
 
     protected Object [] element, element2;
     protected int size;
@@ -168,9 +168,13 @@ public class ArrayLinearList implements LinearList {
 
     //coding soal no 12
     @Override
-    public Object clone(Object[] a) {
-        a = new Object[size];
-        a = element.clone();
-        return toString();
+    public Object clone() {
+        try {
+            return super.clone();
+        }
+        catch (CloneNotSupportedException e) {
+            throw new Error("Something impossible just happened");
+        }
     }
 }
+
